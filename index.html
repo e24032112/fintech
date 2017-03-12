@@ -474,7 +474,6 @@
         -webkit-transform: translateY(-50%) translateX(-50%);
         background-color: rgba(0, 0, 0, 0);
         border: none;
-        top: 114vw;
         z-index: 1000;
     }
     
@@ -482,9 +481,9 @@
         width: 8vw;
     }
         </style>
+    <div class="cir">
+        <button class="arrow btn btn-default " id="arr"><img src="arrow.png"></button></div>
 	<div class="row">
-        <div class="cir">
-            <button class="arrow btn btn-default " id="arr"><img src="arrow.png"></button></div>
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-6 dgmap">
@@ -542,7 +541,6 @@
         font-size:4vw;
         background-color: rgba(0, 0, 0, 0);
         display: inline-block;
-        margin-top: 55pt;
         margin-left: 20pt;
         font-weight:bolder;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
@@ -567,37 +565,60 @@
         text-shadow: 0 1px 2px var(--shadow);
         padding-left: 25pt;
         padding-top: 25pt;
-    }
-    .sbar{
-        height: 4vw;
-        width: 30%;
-        border-radius: 60pt;
-        font-size: 20pt;
-        color: black;
-        padding-left: 3vw;
-        margin-right: 15vh;
-        border: none;
-    }
-    .ebar{
-        height: 4vw;
-        width: 30%;
-        border-radius: 60pt;
-        font-size: 20pt;
-        color: black;
-        padding-left: 3vw;
-        border: none;
+        margin-bottom: 12vh;
     }
     .summit {
         color: black;
-        width: 15%;
+        width: 40%;
         box-sizing: border-box;
-        font-family:'Quicksand-Bold';
+        font-family: 'Quicksand-Bold';
         border: none;
         border-radius: 32px;
         background-color: #f4511c;
-        height: 4vw;
+        height: 3.5vw;
         font-size: 1.5vw;
-        margin-left: 15vh;
+        margin-left: 1vh;
+    }
+    button.cinput {
+        width: 20vw;
+        color: #727272;
+    }
+    
+    .cinput{
+        padding-right: 3vw;
+        height: 4vw;
+        font-size: 2vw;
+        color: #727272;
+    }
+    
+    .choose {
+        font-family:'Quicksand-Bold';
+        padding-left: 2vw;
+        height: 4vw;
+        border-radius: 3vw;
+        font-size: 2vw;
+        width: 26vw;
+        color: black;
+        margin-left: 2vw;
+    }
+    
+    .choose img {
+        width: 1vw;
+        margin-right: 1vw;
+    }
+    
+    input.cinput {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+    .ebar {
+        font-family:'Quicksand-Bold';
+        padding-left: 2vw;
+        height: 4vw;
+        border-radius: 3vw;
+        font-size: 2vw;
+        width: 26vw;
+        color: black;
     }
         </style>
     
@@ -618,13 +639,34 @@
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							 
-							<div class="col-sm-10">
-								<input type="email" class="sbar" id="inputEmail3" placeholder="Choose your city">
-                                <input type="password" class="ebar" id="inputPassword3" placeholder="Your email.">
+							<div class="col-md-4">
+                                <button data-toggle="dropdown" class="choose btn btn-default dropdown-toggle">
+                                    <span class="cinput">
+                                        Choose your city
+                                    </span> <img src="choose_2.png">
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Taipei</a>
+                                    </li>
+                                    <li class="disabled">
+                                        <a href="#">Tainan</a>
+                                    </li>
+                                    <li class="divider">
+                                    </li>
+                                    <li>
+                                        <a href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="email" class="ebar" id="inputPassword3" placeholder="Your email.">
+                            </div>
+                            <div class="col-md-4">
                                     <button type="submit" class="summit btn btn-default">
                                         Summit
                                     </button>
-							</div>
+                            </div>
 							 
                         </div>
 					</form>
