@@ -190,7 +190,7 @@
                         <div class="slo left-addon inner-addon right-addon">
                             <i class="glyphicon glyphicon-search gsear"></i>
                             <i class="fa fa-microphone fsear"></i>
-                            <input type="text" class="search-bar" placeholder="Type your city.">
+                            <input type="text" class="search search_top search-bar " placeholder="Type your city.">
                             </div>
                     </div>
                 </div>
@@ -496,9 +496,9 @@
                     <div class="srd inner-addon left-addon right-addon">
                         <i class="glyphicon glyphicon-search gsea"></i>
                         <i class="fa fa-microphone fsea"></i>
-                        <input type="text" class="search searbar" placeholder="Type your city.">
+                        <input type="text" class="search searbar" placeholder="Type your city." id="addr">
                             </div>
-                    <button class="rectangle btn btn-default search ">
+                    <button type='submit' class="btn btn-default rectangle"  id="mapsub">
                         Search it!
                     </button>
 							</div>
@@ -528,6 +528,21 @@
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o&callback=initMap">
+        </script>
+    <script>
+        $(".rectangle").click(function(){
+                              $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                        {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                        function(data){
+                                        var loc = data.results[0].geometry.location;
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                                                  center: {lat: loc.lat, lng: loc.lng},
+                                                                  zoom: 11,
+                                                                  scrollwheel: false,
+                                                                  disableDefaultUI: true
+                                                                  });
+                                        });
+                              });
         </script>
     <style>
         .bg3{
