@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tipbox</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+        
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  </head>
+  <body>
+      <style>
+          @font-face {
+              font-family: Quicksand-Bold;
+              src: url("fonts/Quicksand-Bold.ttf.woff");
+          }
+          
+          .calay{
+              z-index:-999;
+          }
+          .marginc{
+              padding-right: 0px;
+              padding-left: 0px;
+          }
+          .logo{
+              height : 8vh;
+          }
+      .gply{
+          margin-right: 1vh;
+          margin-left: 35vh;
+          background-color: rgba(0, 0, 0, 0);
+      }
+      .gp{
+          height: 4vh;
+          background-color: rgba(0, 0, 0, 0);
+      }
+      .navlay{
+          background-color: rgba(0, 0, 0, 0);
+          border-color: rgba(0, 0, 0, 0);
+          padding-top: 10vh;
+          position:absolute;
+      }
+      .lsly{
+          margin-right: 3vh;
+          margin-left: 330pt;
+          background-color: rgba(0, 0, 0, 0);
+      }
+      .lobtn{
+          color:white;
+          font-family:'Quicksand-Bold';
+          font-size: 15pt;
+          text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          display: inline-block;
+          padding-top: 0pt;
+          padding-bottom: 0pt;
+      }
+      .subtn{
+          color: white;
+          font-family: 'Quicksand-Bold';
+          font-size: 15pt;
+          text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+          background-color: black;
+          border: 1px solid black;
+          border-radius: 50px;
+          display: inline-block;
+          padding-top: 4pt;
+          padding-bottom: 1pt;
+          padding-left: 15pt;
+          padding-right: 15pt;
+          margin-top: -2.8pt;
+      }
+      .blkdiv{
+          background-color: #231f20;
+          opacity: 0.9;
+          height: 100%;
+          width: 52%;
+          left: 0px;
+          top: 0px;
+          float: left;
+          position: absolute;
+          z-index: 20;
+      }
+      .tip{
+          color:white;
+          font-family:'Quicksand-Bold';
+          font-size:4vw;
+          background-color: rgba(0, 0, 0, 0);
+          display: inline-block;
+          padding-top: 20vh;
+          padding-left: 20vh;
+          margin-top: 55pt;
+          margin-left: 20pt;
+          font-weight:bolder;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          text-shadow: 0 1px 2px var(--shadow);
+      }
+      .slo{
+          left:0px;
+          top:0px;
+          position: relative;
+          margin-top: 60pt;
+      }
+      .search-bar {
+          color: black;
+          width: 85%;
+          border-radius: 32px;
+          padding-left: 5vw;
+          background-color: white;
+          height:5vw;
+          font-size: 2vw;
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+          border-style: solid;
+          border-width: 0px;
+          border-image-source: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.0) 20%, rgba(255, 255, 255, 0.0));
+          border-image-slice: 1;
+      }
+      .inner-addon .gsear{
+          position: absolute;
+          padding: 0.6vw 0.4vw;
+          pointer-events: none;
+          text-shadow: none;
+          font-size: 2vw;
+          color: black;
+          opacity: 0.54;
+          top: 2.1vw;
+          left: 1.5vw;
+      }
+      
+      .inner-addon .fsear {
+          position: absolute;
+          padding: 0.6vw 0.4vw;
+          pointer-events: none;
+          text-shadow: none;
+          font-size: 2.5vw;
+          color: black;
+          opacity: 0.54;
+          top: 1.75vw;
+          right: 7.5vw;
+      }
+      
+      .left-addon {
+          left: 0vw;
+      }
+      
+      .right-addon {
+          right: 0vw;
+      }
+      .fsear{
+          font-size:28px;
+          color:grey;
+      }
+      .gsear{
+          font-size:28px;
+          color:grey;
+      }
+          </style>
+    <script type="text/javascript">
+          $(document).ready(function () {
+                            $('#carousel-228350').carousel({
+                                                    interval: 3000
+                                                    });
+                            
+                            $('#carousel-228350').carousel('cycle');
+                            });
+          </script>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="marginc col-md-12">
+			<div class="carousel slide" id="carousel-228350">
+                <div class="row blkdiv">
+                    <div class="col-md-12 tip">
+                        <p>
+                        Tip for your <br>
+                        favorite <br>
+                        <u><em>Street Artist</em></u> <br>
+                        with <br>
+                        <u><em>Paypal.</em></u>
+                        </p>
+                        <div class="slo left-addon inner-addon right-addon">
+                            <i class="glyphicon glyphicon-search gsear"></i>
+                            <i class="fa fa-microphone fsear"></i>
+                            <input type="text" class="search-bar" placeholder="Type your city.">
+                            </div>
+                    </div>
+                </div>
+                <nav class="navlay navbar navbar-default navbar-fixed-top" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" style="margin-left: 7vh;" href="#"><img class="logo" src="logo.png"></a>
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="gply">
+                                <a href="#"><img class="gp" src="Google Play.png"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img class="gp" src="Apple Store.png"></a>
+                            </li>
+                            <li class="lsly">
+                                <a href="#"><button class="lobtn"><p>Login</p></button></a>
+                            </li>
+                            <li>
+                                <a href="#"><button class="subtn"><p>Sign up</p></button></a>
+                            </li>
+                            </nav>
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-228350">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-228350">
+				</ol>
+				<div class="calay carousel-inner">
+					<div class="item active">
+						<img alt="Carousel Bootstrap First" src="slider_1.jpg">
+					</div>
+					<div class="item">
+						<img alt="Carousel Bootstrap Second" src="slider_2.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <style>
+        .visa{
+            padding-top: 7vh;
+            padding-left: 15vh;
+            padding-right: 12vh;
+            margin-bottom: 5vh;
+            width: 20%;
+        }
+    .PayPal{
+        padding-top: 7vh;
+        padding-right: 25pt;
+        margin-bottom: 5vh;
+        width: 20%;
+        padding-left: 12vh;
+    }
+    .skillshare{
+        padding-top: 7vh;
+        padding-right: 12vh;
+        margin-bottom: 5vh;
+        padding-left: 12vh;
+    }
+    .wired{
+        padding-top: 7vh;
+        margin-bottom: 10vh;
+        padding-left: 15vh;
+    }
+        </style>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="visa col-md-3">
+					<img alt="Bootstrap Image Preview" style="height: 40pt;" src="visa.png">
+				</div>
+				<div class="PayPal col-md-3">
+					<img alt="Bootstrap Image Preview" style="height: 40pt;" src="PayPal.png">
+				</div>
+				<div class="skillshare col-md-3">
+					<img alt="skillshare Bootstrap Image Preview" style="height: 30pt;" src="skillshare.png">
+				</div>
+				<div class="wired col-md-3">
+					<img alt="Bootstrap Image Preview" style="height: 40pt;" src="wired.png">
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <style>
+        .hbg{
+            background-image: url('bg.png');
+            background-size: cover;
+        }
+        .hiw{
+            color:black;
+            font-family:'Quicksand-Bold';
+            font-size: 36pt;
+            background-color: rgba(0, 0, 0, 0);
+            display: inline-block;
+            font-weight:bolder;
+            padding-bottom: 30pt;
+        }
+    .des{
+        color:black;
+        font-family:'Quicksand-Bold';
+        font-size: 18pt;
+        background-color: rgba(0, 0, 0, 0);
+        display: inline-block;
+        margin-bottom: 30pt;
+    }
+    .oval-2-copy {
+        border-radius: 100%;
+        width:30px;
+        height:30px;
+        font-size:23px;
+        color:white;
+        background-color: #f4511c;
+        font-family:'Quicksand-Bold';
+        margin-left:45%;
+        margin-bottom:25pt;
+    }
+        </style>
+	<div class="row">
+		<div class="hbg text-center col-md-12">
+			<h3 class="hiw ">
+				How it works
+			</h3>
+			<div class="row">
+				<div class="col-md-3">
+					<img alt="Bootstrap Image Preview" src="find.png" style="height: 60pt; margin-bottom: 30pt;"><br>
+                    <div class="oval-2-copy">
+                        <p>1</p>
+                        </div>
+					<dl>
+                        <strong class="des">Find your favorite  <br>
+                            talent/service  <br>
+                        in your city.</strong>
+					</dl>
+				</div>
+				<div class="col-md-3">
+					<img alt="Bootstrap Image Preview" src="card.png" style="height: 60pt; margin-bottom: 30pt;">
+                        <div class="oval-2-copy">
+                            <p>2</p>
+                        </div>
+                        <dl>
+                            <strong class="des">Bind your   <br>
+                                payment   <br>
+                                method.</strong>
+                        </dl>
+				</div>
+				<div class="col-md-3">
+					<img alt="Bootstrap Image Preview" src="wallet.png"style="height: 60pt; margin-bottom: 30pt;">
+                        <div class="oval-2-copy">
+                            <p>3</p>
+                        </div>
+                        <dl>
+                            <strong class="des">Pay with your   <br>
+                               digital wallet.</strong>
+                        </dl>
+				</div>
+				<div class="col-md-3">
+					<img alt="Bootstrap Image Preview" src="security.png" style="height: 60pt; margin-bottom: 30pt;">
+                        <div class="oval-2-copy">
+                            <p>4</p>
+                        </div>
+                        <dl>
+                            <strong class="des">Check on your   <br>
+                                mobile   <br>
+                                and share ❤️</strong>
+                        </dl>
+					</dl>
+				</div>
+			</div>
+		</div>
+    </div>
+    <style>
+        #map {
+            height: 40vw;
+        }
+    .gmap{
+        position: relative;
+    }
+    .dgmap {
+        left: 0vw;
+        top: 0vw;
+        background-color: rgba(0, 0, 0, 0);
+        height: 100%;
+        width: 55%;
+        z-index: 30;
+        float: left;
+        position: absolute;
+    }
+    .find{
+        color:black;
+        font-family:'Quicksand-Bold';
+        font-size:2.5vw;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px var(--shadow);
+        padding-left: 25vh;
+        padding-top: 10vh;
+    }
+    .and{
+        color:black;
+        font-family:'Quicksand-Bold';
+        font-size:1.5vw;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px var(--shadow);
+        padding-left: 25vh;
+    }
+    .srd{
+        left:25vh;
+        top:7vh;
+        position: relative;
+    }
+    .searbar {
+        color: black;
+        font-family:'Quicksand-Bold';
+        width: 60%;
+        box-sizing: border-box;
+        border-radius: 32px;
+        padding-left: 5vw;
+        background-color: white;
+        height:4vw;
+        font-size: 1.6vw;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+        border-style: solid;
+        border-width: 0px;
+        border-image-source: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.0) 20%, rgba(255, 255, 255, 0.0));
+        border-image-slice: 1;
+    }
+    .inner-addon .gsea{
+        position: absolute;
+        padding: 0.6vw 0.4vw;
+        pointer-events: none;
+        text-shadow: none;
+        font-size: 2vw;
+        color: black;
+        opacity: 0.54;
+        top: 0.7vw;
+        left: 1.2vw;
+    }
+    
+    .inner-addon .fsea {
+        position: absolute;
+        padding: 0.6vw 0.4vw;
+        pointer-events: none;
+        text-shadow: none;
+        font-size: 2.3vw;
+        color: black;
+        opacity: 0.54;
+        top: 0.5vw;
+        left: 28vw;
+    }
+    
+    .right-addon {
+        right: 0vw;
+    }
+    .fsea{
+        font-size:28px;
+        color:grey;
+    }
+    .gsea{
+        font-size:28px;
+        color:grey;
+    }
+    .rectangle {
+        color: black;
+        width: 20%;
+        box-sizing: border-box;
+        font-family:'Quicksand-Bold';
+        border: none;
+        border-radius: 32px;
+        padding-left: 0vw;
+        background-color: #f4511c;
+        height: 4vw;
+        font-size: 1.5vw;
+        margin-left: 25vh;
+        margin-top:10vh;
+    }
+    .arrow {
+        left: 50%;
+        display: block;
+        position: absolute;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        top: 114vw;
+        z-index: 1000;
+    }
+    
+    .arrow img {
+        width: 8vw;
+    }
+        </style>
+	<div class="row">
+        <div class="cir">
+            <button class="arrow btn btn-default " id="arr"><img src="arrow.png"></button></div>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6 dgmap">
+                    <h2 class="find">
+                        Find your city.
+                    </h2>
+                    <p class="and">
+                    And your favorite talent/service.
+                    </p>
+                    <div class="srd inner-addon left-addon right-addon">
+                        <i class="glyphicon glyphicon-search gsea"></i>
+                        <i class="fa fa-microphone fsea"></i>
+                        <input type="text" class="search searbar" placeholder="Type your city.">
+                            </div>
+                    <button class="rectangle btn btn-default search ">
+                        Search it!
+                    </button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-6">
+				</div>
+			</div>
+		</div>
+	</div>
+    </div>
+    </div>
+    <div id="map">
+    </div>
+    <script>
+    var map;
+    function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+                              center : {lat: 22.9997281, lng: 120.2270277},
+                              zoom: 11,
+                              scrollwheel: false,
+                              disableDefaultUI: true
+                              });
+    }
+    
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o&callback=initMap">
+        </script>
+    <style>
+        .bg3{
+            background-image:url('slider_2.jpg');
+            background-size:cover;
+            height: 80vh;
+        }
+    .vote{
+        color:white;
+        font-family:'Quicksand-Bold';
+        font-size:4vw;
+        background-color: rgba(0, 0, 0, 0);
+        display: inline-block;
+        margin-top: 55pt;
+        margin-left: 20pt;
+        font-weight:bolder;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px var(--shadow);
+    }
+    .opdiv{
+        opacity: 0.49;
+        background-color: black;
+        height: 80vh;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        float: left;
+        position: absolute;
+        z-index: 10;
+    }
+    .wew{
+        color:white;
+        font-family:'Quicksand-Bold';
+        font-size:2.5vw;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px var(--shadow);
+        padding-left: 25pt;
+        padding-top: 25pt;
+    }
+    .sbar{
+        height: 4vw;
+        width: 30%;
+        border-radius: 60pt;
+        font-size: 20pt;
+        color: black;
+        padding-left: 3vw;
+        margin-right: 15vh;
+        border: none;
+    }
+    .ebar{
+        height: 4vw;
+        width: 30%;
+        border-radius: 60pt;
+        font-size: 20pt;
+        color: black;
+        padding-left: 3vw;
+        border: none;
+    }
+    .summit {
+        color: black;
+        width: 15%;
+        box-sizing: border-box;
+        font-family:'Quicksand-Bold';
+        border: none;
+        border-radius: 32px;
+        background-color: #f4511c;
+        height: 4vw;
+        font-size: 1.5vw;
+        margin-left: 15vh;
+    }
+        </style>
+    
+	<div class="row bg3">
+		<div class="col-md-12">
+            <div class="opdiv ">
+            </div>
+			<div class="row">
+                <div class="col-md-12"style="padding-top: 10vh;padding-left: 20vh;z-index: 20;">
+					<h3 class="vote">
+						Vote for your city.
+					</h3>
+                    <p class="wew">
+                    We want to focus on cities  <br>
+                    where there is demand,  <br>
+                    and we can make a difference. <br>
+                    </p>
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							 
+							<div class="col-sm-10">
+								<input type="email" class="sbar" id="inputEmail3" placeholder="Choose your city">
+                                <input type="password" class="ebar" id="inputPassword3" placeholder="Your email.">
+                                    <button type="submit" class="summit btn btn-default">
+                                        Summit
+                                    </button>
+							</div>
+							 
+                        </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    <style>
+        .tip1{
+            color:#f4511c;
+            font-family:'Quicksand-Bold';
+            font-size:4vw;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px var(--shadow);
+        }
+    .com1{
+        color:white;
+        font-family:'Quicksand-Bold';
+        font-size:2.5vw;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px var(--shadow);
+    }
+    .logo2{
+        margin-left: 46%;
+        height: 12vh;
+        padding-top: 4vh;
+    }
+    .api{
+        padding-top: 5vh;
+        padding-left: 50pt;
+        padding-right: 20pt;
+        margin-bottom: 10pt;
+        width: 20%;
+        margin-left: 30%;
+    }
+    .ani{
+        padding-top: 5vh;
+        padding-left: 50pt;
+        padding-right: 20pt;
+        margin-bottom: 10pt;
+        width: 20%;
+    }
+    .cop{
+        color:#9b9b9b;
+        font-family:'Quicksand-Bold';
+        font-size:1.5vw;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px var(--shadow);
+    }
+        </style>
+	<div class="row" style="background-color:black;">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+					<img alt="Bootstrap Image Preview" src="logo.png" class="logo2">
+					<h3 class="text-center tip1">
+						Tip your favorite talent/service!
+					</h3><br>
+                    <h3 class="text-center com1">
+                        Company  |  News  |  Vote  |  Contact
+                    </h3>
+				</div>
+			</div>
+            <img alt="Bootstrap Image Preview" src="apple.png" class="api">
+            <img alt="Bootstrap Image Preview" src="android.png" class="ani"><br>
+                <h3 class="text-center cop">
+                     © 2017 Tipbox™
+                </h3>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
