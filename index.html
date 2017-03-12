@@ -482,8 +482,8 @@
     }
         </style>
     <div class="cir">
-        <button class="arrow btn btn-default " id="arr"><img src="arrow.png"></button></div>
-	<div class="row">
+        <a href="#arrplace" class="arrow btn btn-default " id="arr"><img src="arrow.png"></a></div>
+	<div class="row" id="arrplace">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-6 dgmap">
@@ -530,6 +530,26 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o&callback=initMap">
         </script>
     <script>
+        var hash = $("#arr a").attr("href");
+        
+        $(".search").change(function() {
+                            if($(".search").is(":focus") === true){
+                            for(var i = 0 ; i < 2 ; i++){
+                            $(".search")[i].value = $(this).val();
+                            }
+                            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                      {"address":$(this).val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                      function(data){
+                                      var loc = data.results[0].geometry.location;
+                                      map = new google.maps.Map(document.getElementById('map'), {
+                                                                center: {lat: loc.lat, lng: loc.lng},
+                                                                zoom: 11,
+                                                                scrollwheel: false,
+                                                                disableDefaultUI: true
+                                                                });
+                                      });
+                            }
+                            });
         $(".rectangle").click(function(){
                               $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
                                         {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
@@ -543,6 +563,29 @@
                                                                   });
                                         });
                               });
+        
+        $(".search_top").keypress(function(){
+
+                              $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                        {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                        function(data){
+                                        var loc = data.results[0].geometry.location;
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                                                  center: {lat: loc.lat, lng: loc.lng},
+                                                                  zoom: 11,
+                                                                  scrollwheel: false,
+                                                                  disableDefaultUI: true
+                                                                  });
+                                        });
+                                  
+                                  });
+                                  
+                                  
+        $(".search_top").change(function(){
+                                  $('html,body').animate({scrollTop:$('#arrplace').offset().top},800);
+                                  });
+                                  
+
         </script>
     <style>
         .bg3{
