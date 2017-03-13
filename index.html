@@ -47,7 +47,7 @@
           background-color: rgba(0, 0, 0, 0);
           border-color: rgba(0, 0, 0, 0);
           padding-top: 6vw;
-          position:fixed;
+          position:absolute;
       }
       .lsly{
           margin-right: 2vw;
@@ -67,6 +67,7 @@
           padding-right: 1.5vw;
           border: none;
           outline: none;
+          padding-top: 0.2vw;
       }
       .lobtn:hover{
           background-color: black;
@@ -201,15 +202,18 @@
                          $('.sc').removeClass('sc');
                          $('.sc1').removeClass('sc1');
                          $('.navlay').css("padding-top","0.3vw");
-                         $('.navlay').css("padding-bottom","0.7vw");
-                         $('.navlay').css("background-color","black");
+                         $('.navlay').css("padding-bottom","0.4vw");
+                         $('.navlay').css("background-color","#231f20");
                          $('.navlay').css("opacity","0.8");
+                         $('.navlay').css("position","fixed");
                          
                          }
                          else{
                          $('.navbar').css("padding-top","6vw");
                          $('.navbar').css("padding-bottom","0vw");
                          $('.navbar').css("background-color","rgba(0, 0, 0, 0)");
+                         $('.navlay').css("opacity","1");
+                         $('.navlay').css("position","absolute");
                          $('.sc-scroll').addClass('sc');
                          $('.sc1-scroll').addClass('sc1');
                          $('.sc-scroll').removeClass('sc-scroll');
