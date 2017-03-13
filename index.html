@@ -35,8 +35,8 @@
               height : 8vh;
           }
       .gply{
-          margin-right: 1vh;
-          margin-left: 35vh;
+          margin-right: 1vw;
+          margin-left: 18vw;
           background-color: rgba(0, 0, 0, 0);
       }
       .gp{
@@ -46,18 +46,18 @@
       .navlay{
           background-color: rgba(0, 0, 0, 0);
           border-color: rgba(0, 0, 0, 0);
-          padding-top: 10vh;
-          position:absolute;
+          padding-top: 6vw;
+          position:fixed;
       }
       .lsly{
-          margin-right: 3vh;
-          margin-left: 330pt;
+          margin-right: 2vw;
+          margin-left: 19vw;
           background-color: rgba(0, 0, 0, 0);
       }
       .lobtn{
           color:white;
           font-family:'Quicksand-Bold';
-          font-size: 15pt;
+          font-size: 1.5vw;
           background-color: rgba(0, 0, 0, 0);
           border: none;
           display: inline-block;
@@ -65,8 +65,8 @@
           border-radius: 50px;
           padding-left: 1.5vw;
           padding-right: 1.5vw;
-          background-color: none;
           border: none;
+          outline: none;
       }
       .lobtn:hover{
           background-color: black;
@@ -79,14 +79,15 @@
       .subtn{
           color: white;
           font-family: 'Quicksand-Bold';
-          font-size: 15pt;
+          font-size: 1.5vw;
           background-color: black;
-          border: 1px solid black;
-          border-radius: 50px;
+          border: 1px solid rgba(0, 0, 0, 0);
+          border-radius: 6vw;
           display: inline-block;
           height: 2vw;
           padding-left: 1vw;
           padding-right: 1vw;
+          outline: none;
       }
       .subtn:hover{
           background-color: white;
@@ -135,6 +136,7 @@
           border-width: 0px;
           border-image-source: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.0) 20%, rgba(255, 255, 255, 0.0));
           border-image-slice: 1;
+          outline: none
       }
       .inner-addon .gsear{
           position: absolute;
@@ -191,6 +193,31 @@
                             $('#carousel-228350').carousel('cycle');
                             });
           </script>
+    <script>
+        $(window).scroll(function(){
+                         if($(window).scrollTop()>80){
+                         $('.sc').addClass('sc-scroll');
+                         $('.sc1').addClass('sc1-scroll');
+                         $('.sc').removeClass('sc');
+                         $('.sc1').removeClass('sc1');
+                         $('.navlay').css("padding-top","0.3vw");
+                         $('.navlay').css("padding-bottom","0.7vw");
+                         $('.navlay').css("background-color","black");
+                         $('.navlay').css("opacity","0.8");
+                         
+                         }
+                         else{
+                         $('.navbar').css("padding-top","6vw");
+                         $('.navbar').css("padding-bottom","0vw");
+                         $('.navbar').css("background-color","rgba(0, 0, 0, 0)");
+                         $('.sc-scroll').addClass('sc');
+                         $('.sc1-scroll').addClass('sc1');
+                         $('.sc-scroll').removeClass('sc-scroll');
+                         $('.sc1-scroll').removeClass('sc1-scroll');
+                         }
+                         });
+
+        </script>
     <div class="container-fluid">
 	<div class="row">
 		<div class="marginc col-md-12">
@@ -212,12 +239,11 @@
                     </div>
                 </div>
                 <nav class="navlay navbar navbar-default navbar-fixed-top" role="navigation">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" style="margin-left: 7vw;" href="#"><img class="logo" src="logo.png"></a>
-                    </div>
-                    
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
+                            <li>
+                                <a class="navbar-brand" style="margin-left: 7vw;" href="#"><img class="logo" src="logo.png"></a>
+                            </li>
                             <li class="gply">
                                 <a href="#"><img class="gp" src="Google Play.png"></a>
                             </li>
@@ -225,10 +251,10 @@
                                 <a href="#"><img class="gp" src="Apple Store.png"></a>
                             </li>
                             <li class="lsly">
-                                <a href="#"><button class="lobtn"><p>Login</p></button></a>
+                                <a href="#"><button class="lobtn" id="sc1"><p>Login</p></button></a>
                             </li>
                             <li>
-                                <a href="#"><button class="subtn"><p>Sign up</p></button></a>
+                                <a href="#"><button class="subtn" id="sc"><p>Sign up</p></button></a>
                             </li>
                             </nav>
 				<ol class="carousel-indicators">
@@ -430,6 +456,7 @@
         border-width: 0px;
         border-image-source: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.0) 20%, rgba(255, 255, 255, 0.0));
         border-image-slice: 1;
+        outline: none;
     }
     .inner-addon .gsea{
         position: absolute;
@@ -498,9 +525,12 @@
     .arrow img {
         width: 8vw;
     }
+    .arrow img:hover{
+       background-color: rgba(0, 0, 0, 0);
+    }
         </style>
     <div class="cir">
-        <a href="#arrplace" class="arrow btn btn-default " id="arr"><img src="arrow.png"></a></div>
+        <a href="#arrplace" class="arrow" id="arr"><img src="arrow.png"></a></div>
 	<div class="row" id="arrplace">
 		<div class="col-md-12">
 			<div class="row">
@@ -668,6 +698,7 @@
         height: 4vw;
         font-size: 2vw;
         color: #727272;
+        outline: none;
     }
     
     .choose {
@@ -679,6 +710,7 @@
         width: 26vw;
         color: black;
         margin-left: 2vw;
+        outline: none;
     }
     
     .choose img {
@@ -698,6 +730,12 @@
         font-size: 2vw;
         width: 26vw;
         color: black;
+        outline: none;
+    }
+    .change{
+        left: 16vw;
+        font-family:'Quicksand-Bold';
+        margin: 0 0 0;
     }
         </style>
     
@@ -719,12 +757,12 @@
 						<div class="form-group">
 							 
 							<div class="col-md-4">
-                                <button data-toggle="dropdown" class="choose btn btn-default dropdown-toggle">
+                                <button data-toggle="dropdown" class="choose btn btn-default dropdown-toggle" style="outline: none;">
                                     <span class="cinput">
                                         Choose your city
                                     </span> <img src="choose_2.png">
                                 </button>
-                                <ul class="dropdown-menu">
+                                <ul class="change dropdown-menu">
                                     <li>
                                         <a href="#">Taipei</a>
                                     </li>
