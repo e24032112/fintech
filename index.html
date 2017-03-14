@@ -195,12 +195,13 @@
                             });
           </script>
     <script>
-        $(window).scroll(function(){
-                         if($(window).scrollTop()>80){
-                         $('.sc').addClass('sc-scroll');
-                         $('.sc1').addClass('sc1-scroll');
-                         $('.sc').removeClass('sc');
-                         $('.sc1').removeClass('sc1');
+        $(window).scroll(function () {
+                         {
+                         previousTop: 80
+                         };
+                         var currentTop = $(window).scrollTop();
+                         if (currentTop > this.previousTop) {
+                         $(".navbar").fadeOut(400);
                          $('.navlay').css("padding-top","0.3vw");
                          $('.navlay').css("padding-bottom","0.4vw");
                          $('.navlay').css("background-color","#231f20");
@@ -208,20 +209,23 @@
                          $('.navlay').css("position","fixed");
                          
                          }
-                         else{
+                         else if (currentTop <= 80) {
                          $('.navbar').css("padding-top","6vw");
                          $('.navbar').css("padding-bottom","0vw");
                          $('.navbar').css("background-color","rgba(0, 0, 0, 0)");
                          $('.navlay').css("opacity","1");
                          $('.navlay').css("position","absolute");
-                         $('.sc-scroll').addClass('sc');
-                         $('.sc1-scroll').addClass('sc1');
-                         $('.sc-scroll').removeClass('sc-scroll');
-                         $('.sc1-scroll').removeClass('sc1-scroll');
+                         }
+                         else {
+                         $(".navbar").fadeIn(400);
+                         }
+                         
+                         if (currentTop > 80){
+                         this.previousTop = currentTop;
                          }
                          });
-
-        </script>
+                         
+                         </script>
     <div class="container-fluid">
 	<div class="row">
 		<div class="marginc col-md-12">
