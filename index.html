@@ -554,7 +554,7 @@
                         <i id="mp1" class="fa fa-microphone fsea"></i>
                         <input type="text" class="search searbar" placeholder="Type your city." id="addr">
                             </div>
-                    <button type='submit' class="btn btn-default rectangle"  id="mapsub">
+                    <button type='submit' class="rectangle btn btn-default"  id="mapsub" style="outline:none;">
                         Search it!
                     </button>
 							</div>
@@ -587,14 +587,9 @@
         </script>
     <script>
         var hash = $("#arr a").attr("href");
-        
-        $(".search").change(function() {
-                            if($(".search").is(":focus") === true){
-                            for(var i = 0 ; i < 2 ; i++){
-                            $(".search")[i].value = $(this).val();
-                            }
+        $(".searbar").change(function() {
                             $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                      {"address":$(this).val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                      {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
                                       function(data){
                                       var loc = data.results[0].geometry.location;
                                       map = new google.maps.Map(document.getElementById('map'), {
@@ -603,9 +598,27 @@
                                                                 scrollwheel: false,
                                                                 disableDefaultUI: true
                                                                 });
-                                      });
-                            }
+                                      $(".tip div input").val($(".dgmap div input").val());
+                                      var increase = true;
+                                      $(".dropdown-menu li").each(function(){
+                                                                  if ($(this).find("a").text()==$(".dgmap div input").val()){
+                                                                  increase = false;
+                                                                  }
+                                                                  });
+                                      if(increase){
+                                      $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
+                                      if($(".dgmap div input").val() != "Popular Cities"){
+                                      $("span").empty();
+                                      $("span").append($(".dgmap div input").val());
+                                      $("span").css("color","#231f20");
+                                      }
+                                      }
+                                            });
+                            
                             });
+                            
+                            
+        
         $(".rectangle").click(function(){
                               $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
                                         {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
@@ -617,21 +630,49 @@
                                                                   scrollwheel: false,
                                                                   disableDefaultUI: true
                                                                   });
+                                        var increase = true;
+                                        $(".dropdown-menu li").each(function(){
+                                                                    if ($(this).find("a").text()==$(".dgmap div input").val()){
+                                                                    increase = false;
+                                                                    }
+                                                                    });
+                                        if(increase){
+                                        $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
+                                        if($(".dgmap div input").val() != "Popular Cities"){
+                                        $("span").empty();
+                                        $("span").append($(".dgmap div input").val());
+                                        $("span").css("color","#231f20");
+                                        }
+                                        }
                                         });
                               });
                               
         $("#fs").click(function(){
-                              $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                        {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
-                                        function(data){
-                                        var loc = data.results[0].geometry.location;
-                                        map = new google.maps.Map(document.getElementById('map'), {
-                                                                  center: {lat: loc.lat, lng: loc.lng},
-                                                                  zoom: 11,
-                                                                  scrollwheel: false,
-                                                                  disableDefaultUI: true
-                                                                  });
-                                        });
+                       $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                 {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                 function(data){
+                                 var loc = data.results[0].geometry.location;
+                                 map = new google.maps.Map(document.getElementById('map'), {
+                                                           center: {lat: loc.lat, lng: loc.lng},
+                                                           zoom: 11,
+                                                           scrollwheel: false,
+                                                           disableDefaultUI: true
+                                                           });
+                                 var increase = true;
+                                 $(".dropdown-menu li").each(function(){
+                                                             if ($(this).find("a").text()==$(".dgmap div input").val()){
+                                                             increase = false;
+                                                             }
+                                                             });
+                                 if(increase){
+                                 $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
+                                 if($(".dgmap div input").val() != "Popular Cities"){
+                                 $("span").empty();
+                                 $("span").append($(".dgmap div input").val());
+                                 $("span").css("color","#231f20");
+                                 }
+                                 }
+                                 });
                               });
         
         $("#fs1").click(function(){
@@ -645,6 +686,20 @@
                                                             scrollwheel: false,
                                                             disableDefaultUI: true
                                                             });
+                                  var increase = true;
+                                  $(".dropdown-menu li").each(function(){
+                                                              if ($(this).find("a").text()==$(".dgmap div input").val()){
+                                                              increase = false;
+                                                              }
+                                                              });
+                                  if(increase){
+                                  $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
+                                  if($(".dgmap div input").val() != "Popular Cities"){
+                                  $("span").empty();
+                                  $("span").append($(".dgmap div input").val());
+                                  $("span").css("color","#231f20");
+                                  }
+                                  }
                                   });
                         });
         
@@ -703,29 +758,38 @@
                         recognition.start();
                         });
         
-        
-        $(".search_top").keypress(function(){
-
-                              $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                        {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
-                                        function(data){
-                                        var loc = data.results[0].geometry.location;
-                                        map = new google.maps.Map(document.getElementById('map'), {
-                                                                  center: {lat: loc.lat, lng: loc.lng},
-                                                                  zoom: 11,
-                                                                  scrollwheel: false,
-                                                                  disableDefaultUI: true
-                                                                  });
-                                        });
-                                  
-                                  });
                                   
                                   
         $(".search_top").change(function(){
+                                $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                          {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                          function(data){
+                                          var loc = data.results[0].geometry.location;
+                                          map = new google.maps.Map(document.getElementById('map'), {
+                                                                    center: {lat: loc.lat, lng: loc.lng},
+                                                                    zoom: 11,
+                                                                    scrollwheel: false,
+                                                                    disableDefaultUI: true
+                                                                    });
+                                          $(".dgmap div input").val($(".tip div input").val());
+                                          var increase = true;
+                                          $(".dropdown-menu li").each(function(){
+                                                                      if ($(this).find("a").text()==$(".dgmap div input").val()){
+                                                                      increase = false;
+                                                                      }
+                                                                      });
+                                          if(increase){
+                                          $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
+                                          if($(".dgmap div input").val() != "Popular Cities"){
+                                          $("span").empty();
+                                          $("span").append($(".dgmap div input").val());
+                                          $("span").css("color","#231f20");
+                                          }
+                                          }
+                                          });
                                   $('html,body').animate({scrollTop:$('#arrplace').offset().top},800);
                                   });
-                                  
-
+                            
         </script>
     <style>
         .bg3{
@@ -774,15 +838,13 @@
         height: 3.5vw;
         font-size: 1.5vw;
         margin-left: 1vh;
+        outline: none;
     }
     .summit:hover{
         color: white;
         background-color: black;
+        outline: none;
         
-    }
-    button.cinput {
-        width: 20vw;
-        color: #727272;
     }
     
     .cinput{
@@ -829,8 +891,25 @@
         font-family:'Quicksand-Bold';
         margin: 0 0 0;
     }
+    .dropdown-menu li a{
+        cursor:pointer;
+    }
+    .dropdown-menu li a:hover {
+        color: #f4511c;
+    }
         </style>
-    
+    <script>
+        $(document).ready(function(){
+                          $('.dropdown-menu li a').click(function(){
+                                                         var tx1 = $(this).text() ;
+                                                         if(tx1 != "Popular Cities"){
+                                                         $("span").empty();
+                                                         $("span").html(tx1);
+                                                         $("span").css("color","#231f20");
+                                                         }
+                                            });
+                          });
+        </script>
 	<div class="row bg3">
 		<div class="col-md-12">
             <div class="opdiv ">
@@ -845,26 +924,24 @@
                     where there is demand,  <br>
                     and we can make a difference. <br>
                     </p>
-					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							 
 							<div class="col-md-4">
                                 <button data-toggle="dropdown" class="choose btn btn-default dropdown-toggle" style="outline: none;">
-                                    <span class="cinput">
-                                        Choose your city
-                                    </span> <img src="choose_2.png">
+                                    <span class="cinput" id="cinput">choose your city</span>     <img src="choose_2.png">
                                 </button>
-                                <ul class="change dropdown-menu">
+                                <ul class="change dropdown-menu" style="text-align:center">
                                     <li>
-                                        <a href="#">Taipei</a>
-                                    </li>
-                                    <li class="disabled">
-                                        <a href="#">Tainan</a>
-                                    </li>
-                                    <li class="divider">
+                                        <a style="color:#727272">Popular Cities</a>
                                     </li>
                                     <li>
-                                        <a href="#">Something else here</a>
+                                        <a>Taipei</a>
+                                    </li>
+                                    <li>
+                                        <a>Tainan</a>
+                                    </li>
+                                    <li>
+                                        <a>Tokyo</a>
                                     </li>
                                 </ul>
                             </div>
@@ -872,13 +949,12 @@
                                 <input type="email" class="ebar" id="inputPassword3" placeholder="Your email.">
                             </div>
                             <div class="col-md-4">
-                                    <button type="submit" class="summit btn btn-default">
+                                    <button class="summit btn btn-default" style="outline:none;">
                                         Summit
                                     </button>
                             </div>
 							 
                         </div>
-					</form>
 				</div>
 			</div>
 		</div>
