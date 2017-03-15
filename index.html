@@ -666,6 +666,8 @@
             console.log('停止辨識!');
             if(text){
                 $(".dgmap div input").val(text);
+                $(".search_top").val(text);
+                
                 $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
                           {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
                           function(data){
@@ -693,6 +695,13 @@
         $("#mp").click(function(){
                        recognition.start();
                        });
+        
+        
+        
+        
+        $("#mp1").click(function(){
+                        recognition.start();
+                        });
         
         
         $(".search_top").keypress(function(){
