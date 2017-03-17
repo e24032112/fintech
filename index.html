@@ -607,11 +607,18 @@
                                                                   });
                                       if(increase){
                                       $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                      if($(".dgmap div input").val() != "Popular Cities"){
-                                      $("span").empty();
-                                      $("span").append($(".dgmap div input").val());
-                                      $("span").css("color","#231f20");
-                                      }
+                                      $("#cinput").html($(".dgmap div input").val());
+                                      $("#cinput").css("color","#231f20");
+                                      $(document).ready(function(){
+                                                        $('.dropdown-menu li a').click(function(){
+                                                                                       var tx1 = $(this).text() ;
+                                                                                       if(tx1 != "Popular Cities"){
+                                                                                       $("#cinput").empty();
+                                                                                       $("#cinput").html(tx1);
+                                                                                       $("#cinput").css("color","#231f20");
+                                                                                       }
+                                                                                       });
+                                                        });
                                       }
                                             });
                             
@@ -638,11 +645,18 @@
                                                                     });
                                         if(increase){
                                         $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                        if($(".dgmap div input").val() != "Popular Cities"){
-                                        $("span").empty();
-                                        $("span").append($(".dgmap div input").val());
-                                        $("span").css("color","#231f20");
-                                        }
+                                        $("#cinput").html($(".dgmap div input").val());
+                                        $("#cinput").css("color","#231f20");
+                                        $(document).ready(function(){
+                                                          $('.dropdown-menu li a').click(function(){
+                                                                                         var tx1 = $(this).text() ;
+                                                                                         if(tx1 != "Popular Cities"){
+                                                                                         $("#cinput").empty();
+                                                                                         $("#cinput").html(tx1);
+                                                                                         $("#cinput").css("color","#231f20");
+                                                                                         }
+                                                                                         });
+                                                          });
                                         }
                                         });
                               });
@@ -666,11 +680,18 @@
                                                              });
                                  if(increase){
                                  $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                 if($(".dgmap div input").val() != "Popular Cities"){
-                                 $("span").empty();
-                                 $("span").append($(".dgmap div input").val());
-                                 $("span").css("color","#231f20");
-                                 }
+                                 $("#cinput").html($(".dgmap div input").val());
+                                 $("#cinput").css("color","#231f20");
+                                 $(document).ready(function(){
+                                                   $('.dropdown-menu li a').click(function(){
+                                                                                  var tx1 = $(this).text() ;
+                                                                                  if(tx1 != "Popular Cities"){
+                                                                                  $("#cinput").empty();
+                                                                                  $("#cinput").html(tx1);
+                                                                                  $("#cinput").css("color","#231f20");
+                                                                                  }
+                                                                                  });
+                                                   });
                                  }
                                  });
                               });
@@ -694,11 +715,18 @@
                                                               });
                                   if(increase){
                                   $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                  if($(".dgmap div input").val() != "Popular Cities"){
-                                  $("span").empty();
-                                  $("span").append($(".dgmap div input").val());
-                                  $("span").css("color","#231f20");
-                                  }
+                                  $("#cinput").html($(".dgmap div input").val());
+                                  $("#cinput").css("color","#231f20");
+                                  $(document).ready(function(){
+                                                    $('.dropdown-menu li a').click(function(){
+                                                                                   var tx1 = $(this).text() ;
+                                                                                   if(tx1 != "Popular Cities"){
+                                                                                   $("#cinput").empty();
+                                                                                   $("#cinput").html(tx1);
+                                                                                   $("#cinput").css("color","#231f20");
+                                                                                   }
+                                                                                   });
+                                                    });
                                   }
                                   });
                         });
@@ -733,6 +761,29 @@
                                                     scrollwheel: false,
                                                     disableDefaultUI: true
                                                     });
+                          $(".dgmap div input").val($(".tip div input").val());
+                          var increase = true;
+                          $(".dropdown-menu li").each(function(){
+                                                      if ($(this).find("a").text()==$(".dgmap div input").val()){
+                                                      increase = false;
+                                                      }
+                                                      });
+                          if(increase){
+                          $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
+                          var tx1 = $(this).text() ;
+                          $("#cinput").html($(".dgmap div input").val());
+                          $("#cinput").css("color","#231f20");
+                          $(document).ready(function(){
+                                            $('.dropdown-menu li a').click(function(){
+                                                                           var tx1 = $(this).text() ;
+                                                                           if(tx1 != "Popular Cities"){
+                                                                           $("#cinput").empty();
+                                                                           $("#cinput").html(tx1);
+                                                                           $("#cinput").css("color","#231f20");
+                                                                           }
+                                                                           });
+                                            });
+                          }
                           });
             }
         };
@@ -780,11 +831,18 @@
                                                                       });
                                           if(increase){
                                           $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                          if($(".dgmap div input").val() != "Popular Cities"){
-                                          $("span").empty();
-                                          $("span").append($(".dgmap div input").val());
-                                          $("span").css("color","#231f20");
-                                          }
+                                          $("#cinput").html($(".dgmap div input").val());
+                                          $("#cinput").css("color","#231f20");
+                                          $(document).ready(function(){
+                                                            $('.dropdown-menu li a').click(function(){
+                                                                                           var tx1 = $(this).text() ;
+                                                                                           if(tx1 != "Popular Cities"){
+                                                                                           $("#cinput").empty();
+                                                                                           $("#cinput").html(tx1);
+                                                                                           $("#cinput").css("color","#231f20");
+                                                                                           }
+                                                                                           });
+                                                            });
                                           }
                                           });
                                   $('html,body').animate({scrollTop:$('#arrplace').offset().top},800);
@@ -903,9 +961,9 @@
                           $('.dropdown-menu li a').click(function(){
                                                          var tx1 = $(this).text() ;
                                                          if(tx1 != "Popular Cities"){
-                                                         $("span").empty();
-                                                         $("span").html(tx1);
-                                                         $("span").css("color","#231f20");
+                                                         $("#cinput").empty();
+                                                         $("#cinput").html(tx1);
+                                                         $("#cinput").css("color","#231f20");
                                                          }
                                             });
                           });
@@ -928,7 +986,7 @@
 							 
 							<div class="col-md-4">
                                 <button data-toggle="dropdown" class="choose btn btn-default dropdown-toggle" style="outline: none;">
-                                    <span class="cinput" id="cinput">choose your city</span>     <img src="choose_2.png">
+                                    <span class="cinput" id="cinput">choose your city</span>    <img src="choose_2.png">
                                 </button>
                                 <ul class="change dropdown-menu" style="text-align:center">
                                     <li>
