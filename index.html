@@ -587,43 +587,55 @@
         </script>
     <script>
         var hash = $("#arr a").attr("href");
+        var city ;
         $(".searbar").change(function() {
-                            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                      {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
-                                      function(data){
-                                      var loc = data.results[0].geometry.location;
-                                      map = new google.maps.Map(document.getElementById('map'), {
-                                                                center: {lat: loc.lat, lng: loc.lng},
-                                                                zoom: 11,
-                                                                scrollwheel: false,
-                                                                disableDefaultUI: true
-                                                                });
-                                      $(".tip div input").val($(".dgmap div input").val());
-                                      var increase = true;
-                                      $(".dropdown-menu li").each(function(){
-                                                                  if ($(this).find("a").text()==$(".dgmap div input").val()){
-                                                                  increase = false;
-                                                                  }
-                                                                  });
-                                      if(increase){
-                                      $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                      $("#cinput").html($(".dgmap div input").val());
-                                      $("#cinput").css("color","#231f20");
-                                      $(document).ready(function(){
-                                                        $('.dropdown-menu li a').click(function(){
-                                                                                       var tx1 = $(this).text() ;
-                                                                                       if(tx1 != "Popular Cities"){
-                                                                                       $("#cinput").empty();
-                                                                                       $("#cinput").html(tx1);
-                                                                                       $("#cinput").css("color","#231f20");
-                                                                                       }
-                                                                                       });
-                                                        });
-                                      }
-                                            });
-                            
-                            });
-                            
+                             $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                       {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                       function(data){
+                                       var loc = data.results[0].geometry.location;
+                                       map = new google.maps.Map(document.getElementById('map'), {
+                                                                 center: {lat: loc.lat, lng: loc.lng},
+                                                                 zoom: 11,
+                                                                 scrollwheel: false,
+                                                                 disableDefaultUI: true
+                                                                 });
+                                       
+                                       $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                                 {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                                 function(data){
+                                                 if(data.results[0].address_components[0].types[0] == "colloquial_area" || data.results[0].address_components[0].types[0] == "locality"){
+                                                        city = data.results[0].address_components[0].long_name;
+                                                 }
+                                                 else{
+                                                        city = $(".dgmap div input").val();
+                                                 }
+                                                 $(".tip div input").val(city);
+                                                 $(".dgmap div input").val(city);
+                                                 var increase = true;
+                                                 $(".dropdown-menu li").each(function(){
+                                                                             if ($(this).find("a").text()== city){
+                                                                             increase = false;
+                                                                             }
+                                                                             });
+                                                 if(increase){
+                                                 $(".dropdown-menu").append("<li><a>"+city+"</a></li>");
+                                                 $("#cinput").html(city);
+                                                 $("#cinput").css("color","#231f20");
+                                                 $(document).ready(function(){
+                                                                   $('.dropdown-menu li a').click(function(){
+                                                                                                  var tx1 = $(this).text() ;
+                                                                                                  if(tx1 != "Popular Cities"){
+                                                                                                  $("#cinput").empty();
+                                                                                                  $("#cinput").html(tx1);
+                                                                                                  $("#cinput").css("color","#231f20");
+                                                                                                  }
+                                                                                                  });
+                                                                   });
+                                                 }
+                                                 });
+                                       });
+                             
+                             });
                             
         
         $(".rectangle").click(function(){
@@ -637,30 +649,37 @@
                                                                   scrollwheel: false,
                                                                   disableDefaultUI: true
                                                                   });
-                                        var increase = true;
-                                        $(".dropdown-menu li").each(function(){
-                                                                    if ($(this).find("a").text()==$(".dgmap div input").val()){
-                                                                    increase = false;
-                                                                    }
+                                        $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                                  {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                                  function(data){
+                                                  city = data.results[0].address_components[0].long_name;
+                                                  console.log(city);
+                                                  $(".tip div input").val(city);
+                                                  $(".dgmap div input").val(city);
+                                                  var increase = true;
+                                                  $(".dropdown-menu li").each(function(){
+                                                                              if ($(this).find("a").text()== city){
+                                                                              increase = false;
+                                                                              }
+                                                                              });
+                                                  if(increase){
+                                                  $(".dropdown-menu").append("<li><a>"+city+"</a></li>");
+                                                  $("#cinput").html(city);
+                                                  $("#cinput").css("color","#231f20");
+                                                  $(document).ready(function(){
+                                                                    $('.dropdown-menu li a').click(function(){
+                                                                                                   var tx1 = $(this).text() ;
+                                                                                                   if(tx1 != "Popular Cities"){
+                                                                                                   $("#cinput").empty();
+                                                                                                   $("#cinput").html(tx1);
+                                                                                                   $("#cinput").css("color","#231f20");
+                                                                                                   }
+                                                                                                   });
                                                                     });
-                                        if(increase){
-                                        $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                        $("#cinput").html($(".dgmap div input").val());
-                                        $("#cinput").css("color","#231f20");
-                                        $(document).ready(function(){
-                                                          $('.dropdown-menu li a').click(function(){
-                                                                                         var tx1 = $(this).text() ;
-                                                                                         if(tx1 != "Popular Cities"){
-                                                                                         $("#cinput").empty();
-                                                                                         $("#cinput").html(tx1);
-                                                                                         $("#cinput").css("color","#231f20");
-                                                                                         }
-                                                                                         });
-                                                          });
-                                        }
+                                                  }
+                                                  });
                                         });
                               });
-                              
         $("#fs").click(function(){
                        $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
                                  {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
@@ -672,27 +691,35 @@
                                                            scrollwheel: false,
                                                            disableDefaultUI: true
                                                            });
-                                 var increase = true;
-                                 $(".dropdown-menu li").each(function(){
-                                                             if ($(this).find("a").text()==$(".dgmap div input").val()){
-                                                             increase = false;
-                                                             }
+                                 $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                           {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                           function(data){
+                                           city = data.results[0].address_components[0].long_name;
+                                           console.log(city);
+                                           $(".tip div input").val(city);
+                                           $(".dgmap div input").val(city);
+                                           var increase = true;
+                                           $(".dropdown-menu li").each(function(){
+                                                                       if ($(this).find("a").text()== city){
+                                                                       increase = false;
+                                                                       }
+                                                                       });
+                                           if(increase){
+                                           $(".dropdown-menu").append("<li><a>"+city+"</a></li>");
+                                           $("#cinput").html(city);
+                                           $("#cinput").css("color","#231f20");
+                                           $(document).ready(function(){
+                                                             $('.dropdown-menu li a').click(function(){
+                                                                                            var tx1 = $(this).text() ;
+                                                                                            if(tx1 != "Popular Cities"){
+                                                                                            $("#cinput").empty();
+                                                                                            $("#cinput").html(tx1);
+                                                                                            $("#cinput").css("color","#231f20");
+                                                                                            }
+                                                                                            });
                                                              });
-                                 if(increase){
-                                 $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                 $("#cinput").html($(".dgmap div input").val());
-                                 $("#cinput").css("color","#231f20");
-                                 $(document).ready(function(){
-                                                   $('.dropdown-menu li a').click(function(){
-                                                                                  var tx1 = $(this).text() ;
-                                                                                  if(tx1 != "Popular Cities"){
-                                                                                  $("#cinput").empty();
-                                                                                  $("#cinput").html(tx1);
-                                                                                  $("#cinput").css("color","#231f20");
-                                                                                  }
-                                                                                  });
-                                                   });
-                                 }
+                                           }
+                                           });
                                  });
                               });
         
@@ -707,27 +734,35 @@
                                                             scrollwheel: false,
                                                             disableDefaultUI: true
                                                             });
-                                  var increase = true;
-                                  $(".dropdown-menu li").each(function(){
-                                                              if ($(this).find("a").text()==$(".dgmap div input").val()){
-                                                              increase = false;
-                                                              }
+                                  $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                            {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                            function(data){
+                                            city = data.results[0].address_components[0].long_name;
+                                            console.log(city);
+                                            $(".tip div input").val(city);
+                                            $(".dgmap div input").val(city);
+                                            var increase = true;
+                                            $(".dropdown-menu li").each(function(){
+                                                                        if ($(this).find("a").text()== city){
+                                                                        increase = false;
+                                                                        }
+                                                                        });
+                                            if(increase){
+                                            $(".dropdown-menu").append("<li><a>"+city+"</a></li>");
+                                            $("#cinput").html(city);
+                                            $("#cinput").css("color","#231f20");
+                                            $(document).ready(function(){
+                                                              $('.dropdown-menu li a').click(function(){
+                                                                                             var tx1 = $(this).text() ;
+                                                                                             if(tx1 != "Popular Cities"){
+                                                                                             $("#cinput").empty();
+                                                                                             $("#cinput").html(tx1);
+                                                                                             $("#cinput").css("color","#231f20");
+                                                                                             }
+                                                                                             });
                                                               });
-                                  if(increase){
-                                  $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                  $("#cinput").html($(".dgmap div input").val());
-                                  $("#cinput").css("color","#231f20");
-                                  $(document).ready(function(){
-                                                    $('.dropdown-menu li a').click(function(){
-                                                                                   var tx1 = $(this).text() ;
-                                                                                   if(tx1 != "Popular Cities"){
-                                                                                   $("#cinput").empty();
-                                                                                   $("#cinput").html(tx1);
-                                                                                   $("#cinput").css("color","#231f20");
-                                                                                   }
-                                                                                   });
-                                                    });
-                                  }
+                                            }
+                                            });
                                   });
                         });
         
@@ -741,7 +776,7 @@
         var recognition = new webkitSpeechRecognition();
         recognition.continuous = false;
         recognition.interimResults = true ;
-        recognition.lang = "cmn-Hant-TW" ;
+        recognition.lang = "en-US" ;
         recognition.onstart=function(){
             console.log('開始辨識...');
         };
@@ -761,29 +796,35 @@
                                                     scrollwheel: false,
                                                     disableDefaultUI: true
                                                     });
-                          $(".dgmap div input").val($(".tip div input").val());
-                          var increase = true;
-                          $(".dropdown-menu li").each(function(){
-                                                      if ($(this).find("a").text()==$(".dgmap div input").val()){
-                                                      increase = false;
-                                                      }
+                          $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                    {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                    function(data){
+                                    city = data.results[0].address_components[0].long_name;
+                                    console.log(city);
+                                    $(".tip div input").val(city);
+                                    $(".dgmap div input").val(city);
+                                    var increase = true;
+                                    $(".dropdown-menu li").each(function(){
+                                                                if ($(this).find("a").text()== city){
+                                                                increase = false;
+                                                                }
+                                                                });
+                                    if(increase){
+                                    $(".dropdown-menu").append("<li><a>"+city+"</a></li>");
+                                    $("#cinput").html(city);
+                                    $("#cinput").css("color","#231f20");
+                                    $(document).ready(function(){
+                                                      $('.dropdown-menu li a').click(function(){
+                                                                                     var tx1 = $(this).text() ;
+                                                                                     if(tx1 != "Popular Cities"){
+                                                                                     $("#cinput").empty();
+                                                                                     $("#cinput").html(tx1);
+                                                                                     $("#cinput").css("color","#231f20");
+                                                                                     }
+                                                                                     });
                                                       });
-                          if(increase){
-                          $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                          var tx1 = $(this).text() ;
-                          $("#cinput").html($(".dgmap div input").val());
-                          $("#cinput").css("color","#231f20");
-                          $(document).ready(function(){
-                                            $('.dropdown-menu li a').click(function(){
-                                                                           var tx1 = $(this).text() ;
-                                                                           if(tx1 != "Popular Cities"){
-                                                                           $("#cinput").empty();
-                                                                           $("#cinput").html(tx1);
-                                                                           $("#cinput").css("color","#231f20");
-                                                                           }
-                                                                           });
-                                            });
-                          }
+                                    }
+                                    });
                           });
             }
         };
@@ -822,29 +863,38 @@
                                                                     scrollwheel: false,
                                                                     disableDefaultUI: true
                                                                     });
-                                          $(".dgmap div input").val($(".tip div input").val());
-                                          var increase = true;
-                                          $(".dropdown-menu li").each(function(){
-                                                                      if ($(this).find("a").text()==$(".dgmap div input").val()){
-                                                                      increase = false;
-                                                                      }
+                                          
+                                          $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
+                                                    {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                                    function(data){
+                                                    city = data.results[0].address_components[0].long_name;
+                                                    console.log(city);
+                                                    $(".tip div input").val(city);
+                                                    $(".dgmap div input").val(city);
+                                                    $("#cinput").html(city);
+                                                    $("#cinput").css("color","#231f20");
+                                                    var increase = true;
+                                                    $(".dropdown-menu li").each(function(){
+                                                                                if ($(this).find("a").text()== city){
+                                                                                increase = false;
+                                                                                }
+                                                                                });
+                                                    if(increase){
+                                                    $(".dropdown-menu").append("<li><a>"+city+"</a></li>");
+                                                    $("#cinput").html(city);
+                                                    $("#cinput").css("color","#231f20");
+                                                    $(document).ready(function(){
+                                                                      $('.dropdown-menu li a').click(function(){
+                                                                                                     var tx1 = $(this).text() ;
+                                                                                                     if(tx1 != "Popular Cities"){
+                                                                                                     $("#cinput").empty();
+                                                                                                     $("#cinput").html(tx1);
+                                                                                                     $("#cinput").css("color","#231f20");
+                                                                                                     }
+                                                                                                     });
                                                                       });
-                                          if(increase){
-                                          $(".dropdown-menu").append("<li><a>"+$(".dgmap div input").val()+"</a></li>");
-                                          $("#cinput").html($(".dgmap div input").val());
-                                          $("#cinput").css("color","#231f20");
-                                          $(document).ready(function(){
-                                                            $('.dropdown-menu li a').click(function(){
-                                                                                           var tx1 = $(this).text() ;
-                                                                                           if(tx1 != "Popular Cities"){
-                                                                                           $("#cinput").empty();
-                                                                                           $("#cinput").html(tx1);
-                                                                                           $("#cinput").css("color","#231f20");
-                                                                                           }
-                                                                                           });
-                                                            });
-                                          }
-                                          });
+                                                    }
+                                                    });                                          });
                                   $('html,body').animate({scrollTop:$('#arrplace').offset().top},800);
                                   });
                             
@@ -962,7 +1012,7 @@
                                                          var tx1 = $(this).text() ;
                                                          if(tx1 != "Popular Cities"){
                                                          $("#cinput").empty();
-                                                         $("#cinput").html(tx1);
+                                                         $("#cinput").html(city);
                                                          $("#cinput").css("color","#231f20");
                                                          }
                                             });
