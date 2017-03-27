@@ -1010,9 +1010,9 @@
         $(document).ready(function(){
                           $('.dropdown-menu li a').click(function(){
                                                          var tx1 = $(this).text() ;
+                                                         console.log(tx1);
                                                          if(tx1 != "Popular Cities"){
-                                                         $("#cinput").empty();
-                                                         $("#cinput").html(city);
+                                                         $("#cinput").html(tx1);
                                                          $("#cinput").css("color","#231f20");
                                                          }
                                             });
