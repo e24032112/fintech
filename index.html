@@ -583,14 +583,14 @@
     
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0&callback=initMap">
         </script>
     <script>
         var hash = $("#arr a").attr("href");
         var city ;
         $(".searbar").change(function() {
                              $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                       {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                       {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0"},
                                        function(data){
                                        var loc = data.results[0].geometry.location;
                                        map = new google.maps.Map(document.getElementById('map'), {
@@ -601,7 +601,7 @@
                                                                  });
                                        
                                        $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                                 {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                                 {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0","language":"en"},
                                                  function(data){
                                                  if(data.results[0].address_components[0].types[0] == "colloquial_area" || data.results[0].address_components[0].types[0] == "locality"){
                                                         city = data.results[0].address_components[0].long_name;
@@ -640,7 +640,7 @@
         
         $(".rectangle").click(function(){
                               $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                        {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                        {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0"},
                                         function(data){
                                         var loc = data.results[0].geometry.location;
                                         map = new google.maps.Map(document.getElementById('map'), {
@@ -650,7 +650,7 @@
                                                                   disableDefaultUI: true
                                                                   });
                                         $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                                  {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                                  {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0","language":"en"},
                                                   function(data){
                                                   city = data.results[0].address_components[0].long_name;
                                                   console.log(city);
@@ -682,7 +682,7 @@
                               });
         $("#fs").click(function(){
                        $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                 {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                 {"address":$(".tip div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0"},
                                  function(data){
                                  var loc = data.results[0].geometry.location;
                                  map = new google.maps.Map(document.getElementById('map'), {
@@ -692,7 +692,7 @@
                                                            disableDefaultUI: true
                                                            });
                                  $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                           {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                           {"address":$(".tip div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0","language":"en"},
                                            function(data){
                                            city = data.results[0].address_components[0].long_name;
                                            console.log(city);
@@ -725,7 +725,7 @@
         
         $("#fs1").click(function(){
                         $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                  {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                  {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0"},
                                   function(data){
                                   var loc = data.results[0].geometry.location;
                                   map = new google.maps.Map(document.getElementById('map'), {
@@ -735,7 +735,7 @@
                                                             disableDefaultUI: true
                                                             });
                                   $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                            {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                            {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0","language":"en"},
                                             function(data){
                                             city = data.results[0].address_components[0].long_name;
                                             console.log(city);
@@ -787,7 +787,7 @@
                 $(".tip div input").val(text);
                 $('html,body').animate({scrollTop:$('#arrplace').offset().top},800);
                 $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                          {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                          {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0"},
                           function(data){
                           var loc= data.results[0].geometry.location;
                           map = new google.maps.Map(document.getElementById('map'), {
@@ -797,7 +797,7 @@
                                                     disableDefaultUI: true
                                                     });
                           $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                    {"address":$(".dgmap div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                    {"address":$(".dgmap div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0","language":"en"},
                                     function(data){
                                     city = data.results[0].address_components[0].long_name;
                                     console.log(city);
@@ -854,7 +854,7 @@
                                   
         $(".search_top").change(function(){
                                 $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                          {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o"},
+                                          {"address":$(".tip div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0"},
                                           function(data){
                                           var loc = data.results[0].geometry.location;
                                           map = new google.maps.Map(document.getElementById('map'), {
@@ -865,7 +865,7 @@
                                                                     });
                                           
                                           $.getJSON("https://maps.googleapis.com/maps/api/geocode/json",
-                                                    {"address":$(".tip div input").val(),"key":"AIzaSyCeBlFlp1CtmP4UQZnqC5BGp8atf_On51o","language":"en"},
+                                                    {"address":$(".tip div input").val(),"key":"AIzaSyDW-GIfy8FarJJyH5D_4YRicBPYEcjLnr0","language":"en"},
                                                     function(data){
                                                     city = data.results[0].address_components[0].long_name;
                                                     console.log(city);
